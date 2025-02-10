@@ -2,14 +2,14 @@
  
 ## 1. Theory Questions:
 - **Explain the minimax loss function in GANs and how it ensures competitive training
-between the generator and discriminator.**
+between the generator and discriminator.**\
     The minimax loss function is a function where the generator tries to minimze the discriminator's ability to distinguish between real and fake data while the discriminator tries to maximize its accuracy in identify real versus fake data. It ensures competitiveness between the generator and discriminator because the generator is trained to minimize the probability that the discriminator can identify fake data, while the discriminator tries to minimize the classification error between real and fake samples.
 - **What is mode collapse, Why can mode collapse occur during GAN training? and
-how can it be mitigated?**
+how can it be mitigated?**\
     Mode collapse is when the generator produces a limited variety of outputs instead of a diverse set of realistic data. This is often observed by the generator generating the same samples repeatedly. Mode collapse can be mitigated by using a Wasserstein GAN, which uses the Wasserstein distance loss metric instead of the traditional GAN loss function. Mode collapse can also be mitigated by batch normalization and minibatch discrimination. Batch normalization normalized the input to each layer which reduces the internal covariate shift. Minibatch discrimination is when the discriminator looks at multiple examples in combination rather than isolation which can detect when the generator is experiencing mode collapse.
-- **Explain the role of the discriminator in adversarial training?**
+- **Explain the role of the discriminator in adversarial training?**\
     The discriminator takes in real data from the dataset while also evaluating fake data that is from the generator. The discriminator aims to minimize the classification error between the real samples and generated samples.
-- **How do metrics like IS and FID evaluate GAN performance?**
+- **How do metrics like IS and FID evaluate GAN performance?**\
     IS (inception score) evaluates GAN performance by using a pre-trained inception model to classify generated images. It measures image quality and diversity: the classifier should confidently predict a specific class if the image is realistic, while a diverse set of images should have a balanced class distribution.
     FID (Fréchet inception distance) uses an inception model to extract features from images which then compares the feature distribution of real and generated images using the Fréchet distance. A lower FID indicates that the generated image distribution is closer to the real image distribution.
 
